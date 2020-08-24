@@ -36,16 +36,18 @@ class UserDynamo:
     def delete_user(self, user_id):
         return self.client.delete_item(self.pk(user_id))
 
-    def add_user(self,
-                 user_id,
-                 username,
-                 full_name=None,
-                 gender=None,
-                 birthDate=None,
-                 email=None,
-                 phone=None,
-                 placeholder_photo_code=None,
-                 now=None):
+    def add_user(
+        self,
+        user_id,
+        username,
+        full_name=None,
+        gender=None,
+        birthDate=None,
+        email=None,
+        phone=None,
+        placeholder_photo_code=None,
+        now=None
+    ):
 
         now = now or pendulum.now('utc')
         query_kwargs = {
