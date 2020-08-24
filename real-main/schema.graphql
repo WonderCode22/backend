@@ -100,6 +100,8 @@ type Mutation {
   setUserDetails(
     username: String,
     fullName: String,
+    gender: String,
+    birthDate: String,
     bio: String,
     photoPostId: ID,  # must be refer to a completed image post
     privacyStatus: PrivacyStatus,
@@ -361,6 +363,8 @@ type User {
   # private to user themselves only
   email: AWSEmail
   phoneNumber: AWSPhone
+  gender: String
+  birthDate: AWSDateTime
   languageCode: String
   acceptedEULAVersion: String
   followCountsHidden: Boolean

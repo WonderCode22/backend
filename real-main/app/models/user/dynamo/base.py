@@ -36,9 +36,9 @@ class UserDynamo:
     def delete_user(self, user_id):
         return self.client.delete_item(self.pk(user_id))
 
-    def add_user(
-        self, user_id, username, full_name=None, email=None, phone=None, placeholder_photo_code=None, now=None
-    ):
+    def add_user(self, user_id, username, full_name=None, gender=None, birthDate=None, email=None, phone=None,
+                 placeholder_photo_code=None, now=None):
+
         now = now or pendulum.now('utc')
         query_kwargs = {
             'Item': {
@@ -61,6 +61,10 @@ class UserDynamo:
             query_kwargs['Item']['email'] = email
         if phone:
             query_kwargs['Item']['phoneNumber'] = phone
+        if gender:
+            query_kwargs['Item']['gender'] = phone
+        if birthDate:
+            query_kwargs['Item']['birthDate'] = phone
         try:
             return self.client.add_item(query_kwargs)
         except self.client.exceptions.ConditionalCheckFailedException:
@@ -132,6 +136,8 @@ class UserDynamo:
         user_id,
         full_name=None,
         bio=None,
+        gender=None,
+        birthDate=None,
         language_code=None,
         theme_code=None,
         follow_counts_hidden=None,
@@ -157,6 +163,8 @@ class UserDynamo:
 
         process_attr('fullName', full_name)
         process_attr('bio', bio)
+        process_attr('gender', gender)
+        process_attr('birthDate', birthDate)
         process_attr('languageCode', language_code)
         process_attr('themeCode', theme_code)
         process_attr('followCountsHidden', follow_counts_hidden)

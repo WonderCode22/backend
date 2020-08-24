@@ -43,13 +43,16 @@ def test_add_user_maximal(user_dynamo):
     user_id = 'my-user-id'
     username = 'my-USername'
     full_name = 'my-full-name'
+    gender = 'Male'
+    birth_date = '1990-01-01'
     email = 'my-email'
     phone = 'my-phone'
     photo_code = 'red-cat'
 
     before = pendulum.now('utc')
     item = user_dynamo.add_user(
-        user_id, username, full_name=full_name, email=email, phone=phone, placeholder_photo_code=photo_code
+        user_id, username, full_name=full_name, email=email, phone=phone, placeholder_photo_code=photo_code,
+        gender=gender, birthDate=birth_date
     )
     after = pendulum.now('utc')
 
@@ -68,6 +71,8 @@ def test_add_user_maximal(user_dynamo):
         'privacyStatus': UserPrivacyStatus.PUBLIC,
         'signedUpAt': now.to_iso8601_string(),
         'fullName': full_name,
+        'gender': gender,
+        'birthDate': birth_date,
         'email': email,
         'phoneNumber': phone,
         'placeholderPhotoCode': photo_code,
@@ -233,6 +238,8 @@ def test_set_user_details(user_dynamo):
         user_id,
         full_name='f',
         bio='b',
+        gender='Male',
+        birthDate='1990-01-01',
         language_code='l',
         theme_code='tc',
         follow_counts_hidden=True,
@@ -249,6 +256,8 @@ def test_set_user_details(user_dynamo):
         **{
             'fullName': 'f',
             'bio': 'b',
+            'gender': 'Male',
+            'birthDate': '1990-01-01',
             'languageCode': 'l',
             'themeCode': 'tc',
             'followCountsHidden': True,
@@ -277,6 +286,8 @@ def test_set_user_details_delete_for_empty_string(user_dynamo):
         user_id,
         full_name='f',
         bio='b',
+        gender='Male',
+        birthDate='1990-01-01',
         language_code='l',
         theme_code='tc',
         follow_counts_hidden=True,
@@ -293,6 +304,8 @@ def test_set_user_details_delete_for_empty_string(user_dynamo):
         **{
             'fullName': 'f',
             'bio': 'b',
+            'gender': 'Male',
+            'birthDate': '1990-01-01',
             'languageCode': 'l',
             'themeCode': 'tc',
             'followCountsHidden': True,
@@ -321,6 +334,8 @@ def test_set_user_details_delete_for_empty_string(user_dynamo):
         **{
             'fullName': 'f',
             'bio': 'b',
+            'gender': 'Male',
+            'birthDate': '1990-01-01',
             'languageCode': 'l',
             'themeCode': 'tc',
             'followCountsHidden': False,
@@ -339,6 +354,8 @@ def test_set_user_details_delete_for_empty_string(user_dynamo):
         user_id,
         full_name='',
         bio='',
+        gender='',
+        birthDate='',
         language_code='',
         theme_code='',
         follow_counts_hidden='',

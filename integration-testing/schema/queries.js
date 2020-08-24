@@ -213,6 +213,8 @@ module.exports.searchUsers = gql`
         userId
         username
         fullName
+        gender
+        birthDate
         photo {
           url
         }
@@ -386,6 +388,8 @@ module.exports.ourFollowedUsers = gql`
           bio
           email
           phoneNumber
+          gender
+          birthDate
           followedStatus
           followerStatus
         }

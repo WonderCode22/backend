@@ -44,6 +44,8 @@ test('Blocked user only see absolutely minimal profile of blocker via direct acc
       photoPostId: postId,
       bio: 'testing',
       fullName: 'test test',
+      gender: 'male',
+      birthDate: '1990-01-01'
     },
   })
   variables = {version: 'v2020-01-01.1'}
@@ -59,6 +61,7 @@ test('Blocked user only see absolutely minimal profile of blocker via direct acc
   expect(ourUserFull.albums.items).toHaveLength(0)
   expect(ourUserFull.anonymouslyLikedPosts.items).toHaveLength(0)
   expect(ourUserFull.bio).toBeTruthy()
+  expect(ourUserFull.birthDate).toBeTruthy()
   expect(ourUserFull.blockedStatus).toBe('SELF')
   expect(ourUserFull.blockerStatus).toBe('SELF')
   expect(ourUserFull.blockedUsers.items).toHaveLength(1)
@@ -83,6 +86,7 @@ test('Blocked user only see absolutely minimal profile of blocker via direct acc
   expect(ourUserFull.followedUsers.items).toHaveLength(0)
   expect(ourUserFull.followedUsersWithStories.items).toHaveLength(0)
   expect(ourUserFull.fullName).toBeTruthy()
+  expect(ourUserFull.gender).toBeTruthy()
   expect(ourUserFull.languageCode).toBeTruthy()
   expect(ourUserFull.likesDisabled).toBe(false)
   expect(ourUserFull.onymouslyLikedPosts.items).toHaveLength(0)
@@ -117,6 +121,7 @@ test('Blocked user only see absolutely minimal profile of blocker via direct acc
   ourUserFull.albums = null
   ourUserFull.anonymouslyLikedPosts = null
   ourUserFull.bio = null
+  ourUserFull.birthDate = null
   ourUserFull.blockerStatus = 'BLOCKING'
   ourUserFull.blockedStatus = 'NOT_BLOCKING'
   ourUserFull.blockedUsers = null
@@ -140,6 +145,7 @@ test('Blocked user only see absolutely minimal profile of blocker via direct acc
   ourUserFull.followerUsers = null
   ourUserFull.followedUsersWithStories = null
   ourUserFull.fullName = null
+  ourUserFull.gender = null
   ourUserFull.languageCode = null
   ourUserFull.likesDisabled = null
   ourUserFull.onymouslyLikedPosts = null

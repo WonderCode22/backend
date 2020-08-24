@@ -91,6 +91,16 @@
   response: PassThru.response.vtl
 
 - type: User
+  field: birthDate
+  dataSource: NoneDataSource
+  response: PassThru.response.vtl
+
+- type: User
+  field: gender
+  dataSource: NoneDataSource
+  response: PassThru.response.vtl
+
+- type: User
   field: acceptedEULAVersion
   dataSource: NoneDataSource
   response: PassThru.response.vtl

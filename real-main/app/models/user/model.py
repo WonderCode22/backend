@@ -287,6 +287,8 @@ class User(TrendingModelMixin):
         self,
         full_name=None,
         bio=None,
+        gender=None,
+        birthDate=None,
         language_code=None,
         theme_code=None,
         follow_counts_hidden=None,

@@ -169,6 +169,8 @@ def set_user_details(caller_user, arguments, source, context):
     username = arguments.get('username')
     full_name = arguments.get('fullName')
     bio = arguments.get('bio')
+    gender = arguments.get('gender')
+    birthDate = arguments.get('birthDate')
     photo_post_id = arguments.get('photoPostId')
     privacy_status = arguments.get('privacyStatus')
     follow_counts_hidden = arguments.get('followCountsHidden')
@@ -184,6 +186,8 @@ def set_user_details(caller_user, arguments, source, context):
         username,
         full_name,
         bio,
+        gender,
+        birthDate,
         photo_post_id,
         privacy_status,
         follow_counts_hidden,
@@ -221,6 +225,8 @@ def set_user_details(caller_user, arguments, source, context):
     caller_user.update_details(
         full_name=full_name,
         bio=bio,
+        gender=gender,
+        birthDate=birthDate,
         language_code=language_code,
         theme_code=theme_code,
         follow_counts_hidden=follow_counts_hidden,
