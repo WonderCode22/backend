@@ -45,7 +45,7 @@ test('Blocked user only see absolutely minimal profile of blocker via direct acc
       bio: 'testing',
       fullName: 'test test',
       gender: 'male',
-      birthDate: '1990-01-01'
+      birthDate: '1990-01-01',
     },
   })
   variables = {version: 'v2020-01-01.1'}

@@ -71,11 +71,11 @@ def test_add_user_maximal(user_dynamo):
         'privacyStatus': UserPrivacyStatus.PUBLIC,
         'signedUpAt': now.to_iso8601_string(),
         'fullName': full_name,
-        'gender': gender,
-        'birthDate': birth_date,
         'email': email,
         'phoneNumber': phone,
         'placeholderPhotoCode': photo_code,
+        'gender': gender,
+        'birthDate': birth_date,
     }
 
 

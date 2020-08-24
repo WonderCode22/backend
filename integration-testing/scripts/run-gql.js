@@ -119,7 +119,12 @@ const finishChangeUserPhoneNumber = gql`
 
 const setUserDetails = gql`
   mutation SetUserDetails {
-    setUserDetails(fullName: "Miss. Purple", bio: "millions of peaches", gender: "Male", birthDate: "1990-01-01") {
+    setUserDetails(
+      fullName: "Miss. Purple"
+      bio: "millions of peaches"
+      gender: "Male"
+      birthDate: "1990-01-01"
+    ) {
       userId
       username
       fullName

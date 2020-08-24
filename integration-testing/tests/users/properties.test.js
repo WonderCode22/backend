@@ -61,7 +61,10 @@ describe('Read and write properties our our own profile', () => {
     expect(resp.data.user.birthDate).toBeNull()
 
     // set to some custom values
-    resp = await client.mutate({mutation: mutations.setUserDetails, variables: {bio, fullName, gender, birthDate}})
+    resp = await client.mutate({
+      mutation: mutations.setUserDetails,
+      variables: {bio, fullName, gender, birthDate},
+    })
     expect(resp.data.setUserDetails.bio).toBe(bio)
     expect(resp.data.setUserDetails.fullName).toBe(fullName)
     expect(resp.data.setUserDetails.gender).toBe(gender)
@@ -74,7 +77,10 @@ describe('Read and write properties our our own profile', () => {
     expect(resp.data.user.birthDate).toBe(birthDate)
 
     // clear out the custom values
-    resp = await client.mutate({mutation: mutations.setUserDetails, variables: {bio: '', fullName: '', gender: '', birthDate: ''}})
+    resp = await client.mutate({
+      mutation: mutations.setUserDetails,
+      variables: {bio: '', fullName: '', gender: '', birthDate: ''},
+    })
     expect(resp.data.setUserDetails.bio).toBeNull()
     expect(resp.data.setUserDetails.fullName).toBeNull()
     expect(resp.data.setUserDetails.gender).toBeNull()

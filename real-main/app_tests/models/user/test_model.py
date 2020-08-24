@@ -173,7 +173,8 @@ def test_delete_all_details(user):
 
     # delete those details, all except for privacyStatus which can't be deleted
     user.update_details(
-        full_name='', bio='', gender='', birthDate='', language_code='', theme_code='', follow_counts_hidden='', view_counts_hidden=''
+        full_name='', bio='', gender='', birthDate='', language_code='', theme_code='', follow_counts_hidden='',
+        view_counts_hidden=''
     )
 
     # check the delete made it through
