@@ -51,8 +51,14 @@ def test_add_user_maximal(user_dynamo):
 
     before = pendulum.now('utc')
     item = user_dynamo.add_user(
-        user_id, username, full_name=full_name, email=email, phone=phone, placeholder_photo_code=photo_code,
-        gender=gender, birthDate=birth_date
+        user_id,
+        username,
+        full_name=full_name,
+        email=email,
+        phone=phone,
+        placeholder_photo_code=photo_code,
+        gender=gender,
+        birthDate=birth_date
     )
     after = pendulum.now('utc')
 

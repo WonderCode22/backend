@@ -36,8 +36,16 @@ class UserDynamo:
     def delete_user(self, user_id):
         return self.client.delete_item(self.pk(user_id))
 
-    def add_user(self, user_id, username, full_name=None, gender=None, birthDate=None, email=None, phone=None,
-                 placeholder_photo_code=None, now=None):
+    def add_user(self,
+                 user_id,
+                 username,
+                 full_name=None,
+                 gender=None,
+                 birthDate=None,
+                 email=None,
+                 phone=None,
+                 placeholder_photo_code=None,
+                 now=None):
 
         now = now or pendulum.now('utc')
         query_kwargs = {
@@ -62,9 +70,9 @@ class UserDynamo:
         if phone:
             query_kwargs['Item']['phoneNumber'] = phone
         if gender:
-            query_kwargs['Item']['gender'] = phone
+            query_kwargs['Item']['gender'] = gender
         if birthDate:
-            query_kwargs['Item']['birthDate'] = phone
+            query_kwargs['Item']['birthDate'] = birthDate
         try:
             return self.client.add_item(query_kwargs)
         except self.client.exceptions.ConditionalCheckFailedException:
